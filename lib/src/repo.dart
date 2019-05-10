@@ -120,6 +120,7 @@ class Repo {
           () => _syncTree.applyAck(Name.parsePath(path), writeId, true));
     } on ServerError {
       _syncTree.applyAck(Name.parsePath(path), writeId, false);
+      rethrow;
     }
   }
 
